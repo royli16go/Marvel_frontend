@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/welcome.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="image/marvel_Logo.png" width="115.2" height="36.8">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item" id="Home">
+              <a class="nav-link" href="/frontend/index.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" id="Characters">
+              <a class="nav-link" href="/frontend/characters.html">Characters</a>
+            </li>
+            <li style="display:none;" id="MyFavorite">
+              <a class="nav-link" href="/frontend/favorite.html">My Favorite</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active" id="Register">
+              <a class="nav-link" href="/frontend/register.html">Register</a>
+            </li>
+            <li class="nav-item" id="Login">
+              <a class="nav-link" href="/frontend/login.html">Login</a>
+            </li>
+            <li class="nav-item" style="display:none;" id="Logout">
+              <a class="nav-link">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <div class="title">Activation Code</div>
+    <div class="form">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Activation Code</span>
+            </div>
+            <input type="text" class="form-control" id="ActivationCode">
+        </div>
+        <div type="button" class="btn btn-secondary btn-lg" id="BtnEnter">Enter</div>
+        <div class="error"></div>
+    </div>
+    
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+<script src="js/welcome.js"></script>
+
+</html>
