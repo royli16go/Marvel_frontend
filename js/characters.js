@@ -75,5 +75,5 @@ $('#Logout').click(function() {
     $('#Register').show();
     $('#Login').show();
     $('#Logout').hide();
-    location.href='/frontend/index.html';
+    location.href='index.html';
 });

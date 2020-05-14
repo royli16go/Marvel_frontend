@@ -11,9 +11,9 @@ if ($token) {
         success: function (result) {
             console.log(result);
             if(result === true) {
-                location.href = '/frontend/index.html';
+                location.href = 'index.html';
             } else {
-                location.href = '/frontend/welcome.html';        
+                location.href = 'welcome.html';        
             }
         },
         error: function (result) {
@@ -50,9 +50,9 @@ $("#BtnLogin").click(function () {
                 dataType: 'JSON',
                 success: function (result) {
                     if(result === true) {
-                        location.href = '/frontend/index.html';
+                        location.href = 'index.html';
                     } else {
-                        location.href = '/frontend/welcome.html';        
+                        location.href = 'welcome.html';        
                     }
                 },
                 error: function (result) {

@@ -13,7 +13,7 @@ if ($token) {
         dataType: 'JSON',
         success: function (result) {
             if (result === true) {
-                location.href = '/frontend/index.html';
+                location.href = 'index.html';
             }
         },
         error: function (result) {
@@ -42,7 +42,7 @@ $('#BtnEnter').click(function () {
         data: JSON_ActivationCode,
         dataType: 'JSON',
         success: function (result) {
-            location.href = '/frontend/index.html'
+            location.href = 'index.html'
         },
         error: function (result) {
             $('.error').text(result['responseText'])
@@ -55,5 +55,5 @@ $('#Logout').click(function() {
     $('#Register').show();
     $('#Login').show();
     $('#Logout').hide();
-    location.href='/frontend/index.html';
+    location.href='index.html';
 });

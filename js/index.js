@@ -29,7 +29,7 @@ $("#BtnLogin").click(function() {
             alert(result['message']);
             console.log(result['token']);
             localStorage.setItem("token", result['token']);  
-            location.href='/frontend/welcome.html';
+            location.href='welcome.html';
         },
         error: function(result){
             console.log(result['responseText']);
@@ -43,5 +43,5 @@ $('#Logout').click(function() {
     $('#Register').show();
     $('#Login').show();
     $('#Logout').hide();
-    location.href='/frontend/index.html';
+    location.href='index.html';
 });

@@ -11,9 +11,9 @@ if ($token) {
         success: function (result) {
             console.log(result);
             if(result === true) {
-                location.href = '/frontend/index.html';
+                location.href = 'index.html';
             } else {
-                location.href = '/frontend/welcome.html';        
+                location.href = 'welcome.html';        
             }
         },
         error: function (result) {
@@ -51,7 +51,7 @@ $("#BtnRegister").click(function() {
         success: function (result) {
             console.log(result);
             localStorage.setItem("token", result['token']);  
-            location.href='/frontend/welcome.html';
+            location.href='welcome.html';
         },
         error: function(result){
             console.log(result);
