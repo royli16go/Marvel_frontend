@@ -1,0 +1,24 @@
+.title {
+    font-size: 50px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.NotFind {
+    font-size: 25px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.search {
+    margin-left: 35px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 35px;
+}
