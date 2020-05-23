@@ -18,15 +18,15 @@ $.ajax({
                 "<img src='data:image/jpeg;base64," + value.image + "' class='card-img-top'>" +
                 "<div class='card-body'>" +
                 "<h5 class='card-title'> " + value.name + " </h5>" +
-                "<p class='card-text'>" + value.description + "</p>" +
-                "<a href='#' class='btn btn-primary'>Go somewhere</a>" +
+                // "<p class='card-text'>" + value.description + "</p>" +
+                "<a href='description.html?name="+ value.name +"' class='btn btn-primary'>Description</a>" +
                 "</div>" +
                 "</div>");
         });
     },
     error: function (result) {
         console.log(result);
-        alert(result);
+        alert(result["statusText"]);
     }
 });
 
