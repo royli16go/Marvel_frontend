@@ -5,7 +5,7 @@ if ($token) {
         type: 'post',
         headers: {
             'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem("token")
+            'auth-token': $token
         },
         dataType: 'JSON',
         success: function (result) {
