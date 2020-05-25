@@ -22,9 +22,8 @@ $.ajax({
     url: 'http://localhost:3000/api/info/' + params.get('name'),
     type: 'POST',
     success: function (result) {
-        console.log(result);
         pid = result._id;
-        $('.characters_img').append("<img src='data:image/jpeg;base64," + result.image + "' class='card-img-top'>")
+        $('.characters_img').append("<img src='" + result.image + "' class='card-img-top'>")
         $('.characters_name').text(result.name);
         $('.characters_description').text(result.description);
         var postID = {
@@ -42,9 +41,7 @@ $.ajax({
                 data: JSON_postID,
                 dataType: 'JSON',
                 success: function (result) {
-                    console.log(result);
                     $.each(result, function (key, value) {
-                        console.log(value.create);
                         if(value.create == true) {
                             $('.comment').append("<hr>" +
                             "<div style='display: flex;justify-content: space-between;'>" +
@@ -55,9 +52,9 @@ $.ajax({
                                     "</div>" +
                                     "<div style='white-space:pre;line-height: 1;'>" + value.comment + "</div>" +
                                 "</div>" +
-                                "<div>" +
-                                    "<div style='display: none;' id='postID'>" + value.pid + "</div>" +
-                                    "<button class='btn btn-secondary fas fa-trash'>Delete</button>" +
+                                "<div class='showDelete'>" +
+                                    "<div style='display: none;' id='postID'>" + value._id + "</div>" +
+                                    "<button class='btn btn-secondary fas fa-trash' id='btnDelete'>Delete</button>" +
                                 "</div>" +
                             "</div>");
                         } else {
@@ -75,9 +72,26 @@ $.ajax({
                             "</div>");
                         }
                     });
+                    $('Button#btnDelete').click(function() {
+                        $.ajax({
+                            url: 'http://localhost:3000/api/comment/' + $(this).closest('.showDelete').children('#postID').text(),
+                            type: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'auth-token': $token
+                            },
+                            dataType: 'JSON',
+                            success: function (result) {
+                                location.reload();
+                            },
+                            error: function (result) {
+                                console.log(result['statusText']);
+                                alert(result['statusText']);
+                            }
+                        });
+                    });
                 },
                 error: function (result) {
-                    console.log(result);
                     alert(result["statusText"]);
                 }
             });
@@ -91,7 +105,6 @@ $.ajax({
                 data: JSON_postID,
                 dataType: 'JSON',
                 success: function (result) {
-                    console.log(result);
                     $.each(result, function (key, value) {
                         $('.comment').append("<hr>" + 
                         "<div style='display: flex;'>" +
@@ -102,14 +115,12 @@ $.ajax({
                     });
                 },
                 error: function (result) {
-                    console.log(result);
                     alert(result["statusText"]);
                 }
             });
         }
     },
     error: function (result) {
-        console.log(result);
         alert(result["statusText"]);
     }
 });
@@ -130,9 +141,128 @@ $("#comment_text").keyup(function (e) {
 }).css("resize", "none");
 
 $("#submit").click(function(){
-    console.log($('#comment_text').val());
+    var commentData = {
+        "pid": pid,
+        "comment": $('#comment_text').val()
+    };
+    var JSON_commentData = JSON.stringify(commentData);
+    $.ajax({
+        url: 'http://localhost:3000/api/comment',
+        type: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'auth-token': $token
+        },
+        data: JSON_commentData,
+        dataType: 'JSON',
+        success: function (result) {
+            var postID = {
+                "pid": pid
+            };
+            var JSON_postID = JSON.stringify(postID);
+            if($token) {
+                $.ajax({
+                    url: 'http://localhost:3000/api/comment/getCommentsToken',
+                    type: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'auth-token': $token
+                    },
+                    data: JSON_postID,
+                    dataType: 'JSON',
+                    success: function (result) {
+                        $('.comment').empty();
+                        $.each(result, function (key, value) {
+                            if(value.create == true) {
+                                $('.comment').append("<hr>" +
+                                "<div style='display: flex;justify-content: space-between;'>" +
+                                    "<div>" +
+                                        "<div style='display: flex;'>"+
+                                            "<div style='font-weight: 500;line-height: 2rem;'>" + value.uid + "</div>" +
+                                            "<div style='margin-left: 10px;line-height: 2rem;'>" + value.date + "</div>" +
+                                        "</div>" +
+                                        "<div style='white-space:pre;line-height: 1;'>" + value.comment + "</div>" +
+                                    "</div>" +
+                                    "<div class='showDelete'>" +
+                                        "<div style='display: none;' id='postID'>" + value._id + "</div>" +
+                                        "<button class='btn btn-secondary fas fa-trash' id='btnDelete'>Delete</button>" +
+                                    "</div>" +
+                                "</div>");
+                            } else {
+                                $('.comment').append("<hr>" +
+                                "<div style='display: flex;justify-content: space-between;'>" +
+                                    "<div>" +
+                                        "<div style='display: flex;'>"+
+                                            "<div style='font-weight: 500;line-height: 2rem;'>" + value.uid + "</div>" +
+                                            "<div style='margin-left: 10px;line-height: 2rem;'>" + value.date + "</div>" +
+                                        "</div>" +
+                                        "<div style='white-space:pre;line-height: 1;'>" + value.comment + "</div>" +
+                                    "</div>" +
+                                    "<div>" +
+                                    "</div>" +
+                                "</div>");
+                            }
+                        });
+                        $('Button#btnDelete').click(function() {
+                            $.ajax({
+                                url: 'http://localhost:3000/api/comment/' + $(this).closest('.showDelete').children('#postID').text(),
+                                type: 'DELETE',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'auth-token': $token
+                                },
+                                dataType: 'JSON',
+                                success: function (result) {
+                                    location.reload();
+                                },
+                                error: function (result) {
+                                    console.log(result['error']);
+                                    alert(result['error']);
+                                }
+                            });
+                        });
+                    },
+                    error: function (result) {
+                        alert(result["statusText"]);
+                    }
+                });
+            } else if (!$token) {
+                $.ajax({
+                    url: 'http://localhost:3000/api/comment/getComments',
+                    type: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON_postID,
+                    dataType: 'JSON',
+                    success: function (result) {
+                        $.each(result, function (key, value) {
+                            $('.comment').append("<hr>" + 
+                            "<div style='display: flex;'>" +
+                                "<div style='font-weight: 500;line-height: 2rem;'>" + value['uid'] + "</div>" +
+                                "<div style='margin-left: 10px;line-height: 2rem;'>" + value['date'] + "</div>" +
+                            "</div>" +
+                            "<div style='white-space:pre;line-height: 1;'>" + value['comment'] + "</div>");
+                        });
+                    },
+                    error: function (result) {
+                        alert(result["statusText"]);
+                    }
+                });
+            }
+        },
+        error: function (result) {
+            alert(result['responseText']);
+        }
+    });
     $('#comment_text').val("")
     $("#submit").attr("disabled", true);
+})
+
+$('#comment_text').click(function(){
+    if(!$token) {
+        window.location = './login.html';
+    }
 })
 
 $("#reset").click(function () {

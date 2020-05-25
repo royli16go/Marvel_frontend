@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Info</title>
+    <title>Index</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
@@ -11,7 +11,7 @@
 <body>
 
     <div style="margin: 35px;">
-        <h2>Insert Hero</h2>
+        <h2>Delete Hero</h2>
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -19,25 +19,9 @@
             </div>
             <input type="text" class="form-control" id="HeroName" placeholder="Hero Name">
         </div>
-
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Description</span>
-            </div>
-            <textarea class="form-control" id="description"></textarea>
-        </div>
-
-        <div style="margin-top: 20px;">
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="imageInput" accept="image/x-png,image/gif,image/jpeg">
-                <label class="custom-file-label" for="customFile">Choose file</label>
-            </div>
-            <div id="b64" style="margin-top: 20px; display: none;"></div>
-            <img id="img" height="150" style="margin-top: 20px;">    
-        </div>
         
         <hr>
-        <div type="button" class="btn btn-secondary btn-lg" id="BtnInsertHero">Insert Hero</div>
+        <div type="button" class="btn btn-secondary btn-lg" id="BtnDeleteHero">Delete Hero</div>
 
     </div>
 
@@ -50,6 +34,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 </script>
-<script src="js/info.js"></script>
+<script src="js/delete.js"></script>
 
 </html>

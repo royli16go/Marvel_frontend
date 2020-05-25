@@ -14,11 +14,11 @@ $.ajax({
     type: 'GET',
     success: function (result) {
         $.each(result, function (key, value) {
+            console.log(value);
             $('#cards').append("<div class='card' style='width: 18rem;'> " +
-                "<img src='data:image/jpeg;base64," + value.image + "' class='card-img-top'>" +
+                "<img src='" + value.image + "' class='card-img-top'>" +
                 "<div class='card-body'>" +
                 "<h5 class='card-title'> " + value.name + " </h5>" +
-                // "<p class='card-text'>" + value.description + "</p>" +
                 "<a href='description.html?name="+ value.name +"' class='btn btn-primary'>Description</a>" +
                 "</div>" +
                 "</div>");
@@ -53,13 +53,12 @@ $('#btnSearch').click(function(){
                 $('#cards').empty();
                 $.each(result, function (key, value) {
                     $('#cards').append("<div class='card' style='width: 18rem;'> " +
-                        "<img src='data:image/jpeg;base64," + value.image + "' class='card-img-top'>" +
-                        "<div class='card-body'>" +
-                        "<h5 class='card-title'> " + value.name + " </h5>" +
-                        "<p class='card-text'>" + value.description + "</p>" +
-                        "<a href='#' class='btn btn-primary'>Go somewhere</a>" +
-                        "</div>" +
-                        "</div>");
+                    "<img src='" + value.image + "' class='card-img-top'>" +
+                    "<div class='card-body'>" +
+                    "<h5 class='card-title'> " + value.name + " </h5>" +
+                    "<a href='description.html?name="+ value.name +"' class='btn btn-primary'>Description</a>" +
+                    "</div>" +
+                    "</div>");
                 });
             });
         },
