@@ -10,7 +10,7 @@ if($token){
 }
 
 $.ajax({
-    url: 'http://localhost:3000/api/info',
+    url: 'https://marvel-backend-nodejs.herokuapp.com/api/info',
     type: 'GET',
     success: function (result) {
         $.each(result, function (key, value) {
@@ -36,7 +36,7 @@ $('#btnSearch').click(function(){
     };
     var JSON_searchData = JSON.stringify(searchData);
     $.ajax({
-        url: 'http://localhost:3000/api/info/search',
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/info/search',
         type: 'POST',
         headers: {
             'Content-Type': 'application/json'

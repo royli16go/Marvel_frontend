@@ -1,6 +1,6 @@
 $("#BtnDeleteHero").click(function() {
     $.ajax({
-        url: 'http://localhost:3000/api/info/' + $("#HeroName").val(),
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/info/' + $("#HeroName").val(),
         type: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -16,5 +16,4 @@ $("#BtnDeleteHero").click(function() {
             alert(result['error']);
         }
       });
-    
 });

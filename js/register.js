@@ -1,7 +1,7 @@
 $token = localStorage.getItem("token");
 if ($token) {
     $.ajax({
-        url: 'http://localhost:3000/api/user/CheckActive',
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/user/CheckActive',
         type: 'post',
         headers: {
             'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ $("#BtnRegister").click(function() {
     console.log(JSON_registerupdata);
 
     $.ajax({
-        url: 'http://localhost:3000/api/user/register',
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/user/register',
         type: 'post',
         headers: {
             'Content-Type': 'application/json'

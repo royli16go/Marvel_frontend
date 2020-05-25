@@ -19,7 +19,7 @@ $('#Logout').click(function () {
 
 let params = new URLSearchParams(location.search);
 $.ajax({
-    url: 'http://localhost:3000/api/info/' + params.get('name'),
+    url: 'https://marvel-backend-nodejs.herokuapp.com/api/info/' + params.get('name'),
     type: 'POST',
     success: function (result) {
         pid = result._id;
@@ -32,7 +32,7 @@ $.ajax({
         var JSON_postID = JSON.stringify(postID);
         if($token) {
             $.ajax({
-                url: 'http://localhost:3000/api/comment/getCommentsToken',
+                url: 'https://marvel-backend-nodejs.herokuapp.com/api/comment/getCommentsToken',
                 type: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ $.ajax({
                     });
                     $('Button#btnDelete').click(function() {
                         $.ajax({
-                            url: 'http://localhost:3000/api/comment/' + $(this).closest('.showDelete').children('#postID').text(),
+                            url: 'https://marvel-backend-nodejs.herokuapp.com/api/comment/' + $(this).closest('.showDelete').children('#postID').text(),
                             type: 'DELETE',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ $.ajax({
             });
         } else if (!$token) {
             $.ajax({
-                url: 'http://localhost:3000/api/comment/getComments',
+                url: 'https://marvel-backend-nodejs.herokuapp.com/api/comment/getComments',
                 type: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -147,7 +147,7 @@ $("#submit").click(function(){
     };
     var JSON_commentData = JSON.stringify(commentData);
     $.ajax({
-        url: 'http://localhost:3000/api/comment',
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/comment',
         type: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -162,7 +162,7 @@ $("#submit").click(function(){
             var JSON_postID = JSON.stringify(postID);
             if($token) {
                 $.ajax({
-                    url: 'http://localhost:3000/api/comment/getCommentsToken',
+                    url: 'https://marvel-backend-nodejs.herokuapp.com/api/comment/getCommentsToken',
                     type: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -205,7 +205,7 @@ $("#submit").click(function(){
                         });
                         $('Button#btnDelete').click(function() {
                             $.ajax({
-                                url: 'http://localhost:3000/api/comment/' + $(this).closest('.showDelete').children('#postID').text(),
+                                url: 'https://marvel-backend-nodejs.herokuapp.com/api/comment/' + $(this).closest('.showDelete').children('#postID').text(),
                                 type: 'DELETE',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -228,7 +228,7 @@ $("#submit").click(function(){
                 });
             } else if (!$token) {
                 $.ajax({
-                    url: 'http://localhost:3000/api/comment/getComments',
+                    url: 'https://marvel-backend-nodejs.herokuapp.com/api/comment/getComments',
                     type: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

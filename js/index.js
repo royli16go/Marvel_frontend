@@ -17,7 +17,7 @@ $("#BtnLogin").click(function() {
     var JSON_userdata = JSON.stringify(userdata);
     console.log(JSON_userdata);
     $.ajax({
-        url: 'http://localhost:3000/api/user/login',
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/user/login',
         type: 'post',
         headers: {
             'Content-Type': 'application/json'

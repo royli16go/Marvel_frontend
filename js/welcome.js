@@ -4,7 +4,7 @@ if ($token) {
     $('#Login').hide();
     $('#Logout').show();
     $.ajax({
-        url: 'http://localhost:3000/api/user/CheckActive',
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/user/CheckActive',
         type: 'post',
         headers: {
             'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ $('#BtnEnter').click(function () {
     var JSON_ActivationCode = JSON.stringify(ActivationCode);
     console.log(JSON_ActivationCode);
     $.ajax({
-        url: 'http://localhost:3000/api/user/ActivationCode',
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/user/ActivationCode',
         type: 'POST',
         headers: {
             'Content-Type': 'application/json',

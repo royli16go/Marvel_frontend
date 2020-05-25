@@ -1,7 +1,7 @@
 $token = localStorage.getItem("token");
 if ($token) {
     $.ajax({
-        url: 'http://localhost:3000/api/user/CheckActive',
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/user/CheckActive',
         type: 'post',
         headers: {
             'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ $("#BtnLogin").click(function () {
     };
     var JSON_userdata = JSON.stringify(userdata);
     $.ajax({
-        url: 'http://localhost:3000/api/user/login',
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/user/login',
         type: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ $("#BtnLogin").click(function () {
         success: function (result) {
             localStorage.setItem("token", result['token']);
             $.ajax({
-                url: 'http://localhost:3000/api/user/CheckActive',
+                url: 'https://marvel-backend-nodejs.herokuapp.com/api/user/CheckActive',
                 type: 'post',
                 headers: {
                     'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ $("#BtnInsertHero").click(function() {
     var JSON_HeroData = JSON.stringify(HeroData);
 
     $.ajax({
-        url: 'http://localhost:3000/api/info/',
+        url: 'https://marvel-backend-nodejs.herokuapp.com/api/info/',
         type: 'POST',
         headers: {
             'Content-Type': 'application/json'
