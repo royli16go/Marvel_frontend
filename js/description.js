@@ -255,7 +255,7 @@ $("#submit").click(function(){
             alert(result['responseText']);
         }
     });
-    $('#comment_text').val("")
+    $("#comment_text").height(24).val("");
     $("#submit").attr("disabled", true);
 })
 
